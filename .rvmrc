@@ -1,0 +1,4 @@
+rvm ruby-1.9.2-p320@enumerative --create
+if [ `uname -s` = "Darwin" ]; then
+  rvm current
+fi
