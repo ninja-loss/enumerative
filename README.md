@@ -64,3 +64,19 @@ Use the enumeration:
     vehicle.color.key           # => black
     vehicle.color.value         # => Black
     vehicle.color.to_s          # => black
+
+### Generator
+
+#### Generate an enumeration, its spec and the translations for the en.yml file
+
+To the default app/models/enumerations directory:
+
+  rails generate enumerative:enumeration color black:Black blue:Blue green:Green
+
+To a specific directory:
+
+  rails generate enumerative:enumeration color some/path black:Black blue:Blue green:Green
+
+Namespaced:
+
+  rails generate enumerative:enumeration namespace/color black:Black blue:Blue green:Green
