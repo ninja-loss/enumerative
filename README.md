@@ -71,12 +71,12 @@ Use the enumeration:
 
 To the default app/models/enumerations directory:
 
-  rails generate enumerative:enumeration color black:Black blue:Blue green:Green
+    rails generate enumerative:enumeration color black:Black blue:Blue green:Green
 
 To a specific directory:
 
-  rails generate enumerative:enumeration color some/path black:Black blue:Blue green:Green
+    rails generate enumerative:enumeration color some/path black:Black blue:Blue green:Green
 
 Namespaced:
 
-  rails generate enumerative:enumeration namespace/color black:Black blue:Blue green:Green
+    rails generate enumerative:enumeration namespace/color black:Black blue:Blue green:Green
