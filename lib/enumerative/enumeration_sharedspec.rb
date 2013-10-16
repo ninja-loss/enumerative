@@ -10,8 +10,8 @@ shared_examples_for 'an Enumeration' do
 
     let :immutable_error do
       RUBY_VERSION > "1.9.2" ?
-        "can't modify frozen string" :
-        "can't modify frozen String"
+        "can't modify frozen String" :
+        "can't modify frozen string"
     end
 
     it 'should have the expected #key' do
