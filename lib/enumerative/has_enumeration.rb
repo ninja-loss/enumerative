@@ -21,10 +21,14 @@
          end
 
          attributes.each do |a|
-           composed_of a, :allow_nil => true,
-                          :class_name => class_name || a.to_s.classify,
-                          :mapping => [a, 'key'],
-                          :converter => :new
+           define_method a do
+             return instance_variable_get( "@#{a}" ) unless instance_variable_get( "@#{a}" ).nil?
+             instance_variable_set( "@#{a}", class_name.constantize.new( a ))
+           end
+           #composed_of a, :allow_nil => true,
+                          #:class_name => class_name || a.to_s.classify,
+                          #:mapping => [a, 'key'],
+                          #:converter => :new
 
            validates_associated a, :allow_blank => true
          end
