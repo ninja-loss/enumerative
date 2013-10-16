@@ -8,6 +8,12 @@ shared_examples_for 'an Enumeration' do
       described_class.new 'foo'
     end
 
+    let :immutable_error do
+      RUBY_VERSION > "1.9.2" ?
+        "can't modify frozen string" :
+        "can't modify frozen String"
+    end
+
     it 'should have the expected #key' do
       instance.key.should == 'foo'
     end
@@ -17,7 +23,7 @@ shared_examples_for 'an Enumeration' do
 
       expect {
         instance.key.gsub!( /./, 'x' )
-      }.to raise_error( RuntimeError, "can't modify frozen string")
+      }.to raise_error( RuntimeError, immutable_error )
     end
 
     it 'should equal an equivalent instance' do
