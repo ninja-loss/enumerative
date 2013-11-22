@@ -30,7 +30,10 @@
 
      end
 
-     def initialize( key )
+     def initialize( key_or_hash )
+       key = key_or_hash.is_a?( Hash ) ?
+               (key_or_hash['key'] || key_or_hash[:key]) :
+               key_or_hash
        @key = key.to_s.try( :dup ).try( :freeze )
      end
 
