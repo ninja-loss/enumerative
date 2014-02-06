@@ -1,3 +1,4 @@
+require "active_support/core_ext/object"
 require "enumerative/version"
 
 module Enumerative
