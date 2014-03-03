@@ -30,11 +30,19 @@
 
      end
 
-     def initialize( key_or_hash )
-       key = key_or_hash.is_a?( Hash ) ?
-               (key_or_hash['key'] || key_or_hash[:key]) :
-               key_or_hash
-       @key = key.to_s.try( :dup ).try( :freeze )
+     def initialize( key_hash_or_enum )
+       key = nil
+       if key_hash_or_enum.is_a?( Hash )
+         key = key_hash_or_enum['key'] || key_hash_or_enum[:key]
+       elsif key_hash_or_enum.is_a?( Enumerative::Enumeration )
+         key = key_hash_or_enum.key
+       else
+         key = key_hash_or_enum
+       end
+
+       @key = (key.nil? || key.empty?) ?
+                nil :
+                key.to_s.try( :dup ).try( :freeze )
      end
 
      def ==( other )
