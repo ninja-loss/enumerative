@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'support/enumeration_sharedspec'
+require 'enumerative/enumeration_sharedspec'
 
 describe <%= enumeration_class %> do
 
