@@ -41,7 +41,7 @@ module Enumerative
     def path
       @path ||= first_value_is_path? ?
                   values.shift :
-                  File.join( 'models', 'enumerations' )
+                  File.join( 'enumerations' )
     end
 
     def first_value_is_path?
