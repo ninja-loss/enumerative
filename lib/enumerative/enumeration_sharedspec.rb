@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-shared_examples_for 'an Enumeration' do
+RSpec.shared_examples_for 'an Enumeration' do
 
   describe 'an instance' do
 
@@ -15,11 +15,11 @@ shared_examples_for 'an Enumeration' do
     end
 
     it 'should have the expected #key' do
-      instance.key.should == 'foo'
+      expect( instance.key ).to eq('foo')
     end
 
     it 'should have an immutable #key' do
-      instance.should_not respond_to( :key= )
+      expect( instance ).not_to respond_to( :key= )
 
       expect {
         instance.key.gsub!( /./, 'x' )
@@ -27,11 +27,11 @@ shared_examples_for 'an Enumeration' do
     end
 
     it 'should equal an equivalent instance' do
-      instance.should == described_class.new( 'foo' )
+      expect( instance).to eq(described_class.new( 'foo' ))
     end
 
     it 'should have the expected string representation' do
-      instance.to_s.should == 'foo'
+      expect( instance.to_s ).to eq('foo')
     end
 
     describe 'that is valid' do
@@ -41,7 +41,7 @@ shared_examples_for 'an Enumeration' do
       it { should be_valid }
 
       it 'should have a #value' do
-        subject.value.should_not == nil
+        expect( subject.value ).not_to be(nil)
       end
 
     end
@@ -53,7 +53,7 @@ shared_examples_for 'an Enumeration' do
       it { should_not be_valid }
 
       it 'should not have a #value' do
-        subject.value.should == nil
+        expect( subject.value ).to be(nil)
       end
 
     end
